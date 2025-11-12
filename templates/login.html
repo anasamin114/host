@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>HOST M I X O O F F I C I A L - Login</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      animation: fadeIn 1.5s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .login-box {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      text-align: center;
+      width: 300px;
+    }
+    .logo {
+      font-size: 26px;
+      font-weight: bold;
+      color: #00ffd9;
+      margin-bottom: 10px;
+    }
+    .welcome-message {
+      font-size: 16px;
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+    input[type="password"] {
+      padding: 10px;
+      width: 100%;
+      border: none;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      font-size: 16px;
+      text-align: center;
+      transition: 0.3s;
+    }
+    input[type="password"]:focus {
+      outline: none;
+      box-shadow: 0 0 8px #00ffd9;
+    }
+    button {
+      padding: 10px 30px;
+      font-size: 16px;
+      border: none;
+      background: #00ffd9;
+      color: #000;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #00bfa6;
+    }
+    .forgot {
+      margin-top: 10px;
+      font-size: 13px;
+    }
+    .forgot a {
+      color: #00ffd9;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .forgot a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+    .security-note {
+      margin-top: 15px;
+      font-size: 13px;
+      color: #ffaaaa;
+    }
+    .remember {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <div class="logo">HOST M I X O O F F I C I A L</div>
+    <div class="welcome-message">مرحباً بك، الرجاء إدخال كلمة المرور للمتابعة</div>
+    <form method="POST">
+      <input type="password" name="password" placeholder="كلمة المرور" required />
+      <br>
+      <div class="remember">
+        <input type="checkbox" name="remember" id="remember" /> <label for="remember">حفظ كلمة المرور</label>
+      </div>
+      <br>
+      <button type="submit">دخول</button>
+    </form>
+    <div class="forgot">
+      <a href="https://t.me/@MIXO_OFFICIAL_2" target="_blank">نسيت كلمة المرور؟</a>
+    </div>
+    <div class="security-note">هذا النظام محمي. الدخول مسموح فقط للمصرح لهم.</div>
+  </div>
+</body>
+</html>

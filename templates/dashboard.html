@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('https://via.placeholder.com/1920x1080') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px 20px;
+        }
+
+        h2 {
+            font-size: 3rem;
+            background: linear-gradient(to right, #00ffe1, #00aaff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInDown 1s ease-in-out;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background: rgba(30, 30, 30, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px #00ffe155;
+            margin-top: 30px;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        input[type="file"], input[type="text"] {
+            background: #2a2a2a;
+            border: 1px solid #444;
+            color: #ccc;
+            padding: 10px;
+            border-radius: 8px;
+            margin-right: 10px;
+            transition: 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background: linear-gradient(45deg, #00ffe1, #00bfff);
+            color: #000;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 5px 15px #00ffe144;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px #00ffe188;
+        }
+
+        h3 {
+            margin-top: 50px;
+            font-size: 1.8rem;
+            color: #00ffe1;
+            animation: fadeInUp 1.2s ease-in-out;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+            animation: fadeIn 1.4s ease-in-out;
+        }
+
+        li {
+            margin: 12px 0;
+            background: #2a2a2a;
+            padding: 10px 20px;
+            border-radius: 10px;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        li:hover {
+            transform: scale(1.02);
+            background: #333;
+        }
+
+        a {
+            color: #00ffe1;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #00bfff;
+        }
+
+        .link-container {
+            margin-top: 40px;
+            animation: fadeIn 1.6s ease-in-out;
+        }
+
+        .message {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: #333;
+            color: #00ffe1;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2>Script Dashboard</h2>
+
+    <!-- نموذج تحميل مكتبة خارجية -->
+    <form method="POST">
+        <label for="package_name">Enter Library Name:</label>
+        <input type="text" id="package_name" name="package_name" required>
+        <button type="submit">Install</button>
+    </form>
+
+    {% if message %}
+        <div class="message">
+            <p>{{ message }}</p>
+        </div>
+    {% endif %}
+
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file"/>
+        <button type="submit">Upload</button>
+    </form>
+
+    <h3>Uploaded Scripts:</h3>
+    <ul>
+        {% for file in files %}
+            <li>{{ file }} - <a href="/run/{{ file }}">Run</a></li>
+        {% endfor %}
+    </ul>
+
+    <div class="link-container">
+        <a href="/speed">Run Speed Test</a>
+    </div>
+</body>
+</html>
